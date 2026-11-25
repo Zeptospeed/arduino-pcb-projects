@@ -12,7 +12,8 @@ Hardware: Elegoo UNO R3 Super Starter Kit (ATmega328P).
 | 02 | Potentiometer dimmer / LED crossfade | analogRead, PWM, map(), Serial Monitor | done |
 | 03 | Automatic night light | voltage divider, sensor threshold, hysteresis, millis() timer | done |
 | 04 | Temperature-controlled fan | thermistor, NPN transistor driving a motor, flyback diode, hysteresis | core working, alarm in progress |
-| 05 | PCB capstone (planned) | schematic capture, layout, design rules, fabrication | not started |
+| 05 | [Automotive parking assist](05_parking_assist/) | ultrasonic sensing, median filtering, LCD, LEDs, millis()-timed buzzer | working prototype; documentation/testing ongoing |
+| 06 | PCB capstone (planned) | schematic capture, layout, design rules, fabrication | not started |
 
 ## Repo layout
 Each folder has a README (what I built, calculations, problems and fixes) and the Arduino sketch. Photos and hand-drawn schematics go in each folder.
