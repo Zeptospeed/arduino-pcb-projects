@@ -1,18 +1,26 @@
-# 01: Button and LED
+# 01: Button and LEDs
 
 ## Goal
-Press a button to control LEDs (digital input to digital outputs).
+Press a button to control two LEDs using digital input and output.
 
 ## Circuit
-TODO: describe pins used, resistor values, and add a photo and hand schematic.
+- Button: digital pin 7 to GND, with `INPUT_PULLUP`
+- LED 1: output pin 8; LED 2: output pin 13
+- Each external LED uses its own series current-limiting resistor (e.g., 220 Ohm) and connects back to GND
+
+## Behavior
+The input normally reads HIGH because of the internal pull-up. Pressing the button connects it to GND, producing LOW. The sketch turns both LEDs on only while the button is pressed.
 
 ## Concepts learned
-- digital input and output, HIGH and LOW
-- pull-up or pull-down resistors (INPUT_PULLUP)
-- why an LED needs a series resistor
+- `pinMode()`, `digitalRead()`, `digitalWrite()`
+- Digital HIGH/LOW and internal pull-up resistors
+- LED polarity and current-limiting resistors
 
 ## Problems and fixes
-TODO
+A pull-up button has inverted logic: pressed means LOW, rather than HIGH. The sketch correctly checks `digitalRead(button) == LOW`.
 
 ## Code
-TODO: add sketch file.
+[button_led.ino](button_led.ino)
+
+## Optional documentation
+Add a hardware photo or circuit sketch when available.
