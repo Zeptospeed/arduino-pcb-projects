@@ -1,21 +1,31 @@
 # 02: Potentiometer dimmer and LED crossfade
 
 ## Goal
-Turn a potentiometer to fade one LED up while another fades down.
+Turn a potentiometer to fade the blue LED down as the red LED fades up.
 
 ## Circuit
-- potentiometer wiper to A0
-- LEDs on PWM pins 9 and 10, each with a series resistor
-TODO: add photo and hand schematic.
+- Potentiometer outer legs: 5V and GND; middle (wiper): A0
+- Blue LED: PWM pin 9, through its own current-limiting resistor
+- Red LED: PWM pin 10, through its own current-limiting resistor
+- Both LED cathodes return to GND
+
+## How it works
+The 10-bit ADC reports `analogRead(A0)` from 0 to 1023. Two opposite mappings create crossfade brightness values between 0 and 255:
+- Blue: `map(potValue, 0, 1023, 255, 0)`
+- Red: `map(potValue, 0, 1023, 0, 255)`
+
+`analogWrite()` sends PWM signals to the LEDs; the Serial Monitor prints the input reading.
 
 ## Concepts learned
-- analogRead() returns 0 to 1023 (10-bit ADC)
-- analogWrite() PWM output, 0 to 255, only on ~ pins
-- map(value, inMin, inMax, outMin, outMax) needs the real input range
-- Serial Monitor for debugging
+- Potentiometer voltage divider and analog sensing
+- ADC range (0–1023), PWM range (0–255)
+- `map()`, `analogWrite()`, Serial Monitor debugging
 
-## Problems and fixes
-Experiment: map(potValue, 0, 1, ...) instead of 0 to 1023. The output jumped between extremes because the input range was wrong. Correct range gives a smooth crossfade.
+## Problem and fix
+An experiment used `map(potValue, 0, 1, ...)`, which caused the output to jump toward the extremes. Using the actual ADC input range of 0–1023 gives smooth fading.
 
 ## Code
-TODO: add sketch file.
+[potentiometer_dimmer.ino](potentiometer_dimmer.ino)
+
+## Optional documentation
+Add a breadboard photo or circuit sketch when available.
