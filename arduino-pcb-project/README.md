@@ -2,7 +2,7 @@
 
 Goal: learn Arduino and basic embedded C, prototype circuits on a breadboard, then design and fabricate my own PCB in Altium and document the process.
 
-Hardware: Elegoo UNO R3 Super Starter Kit (ATmega328P).
+Hardware: Arduino UNO R3.
 
 ## Progress log
 
