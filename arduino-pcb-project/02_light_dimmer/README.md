@@ -1,4 +1,4 @@
-# 02: Potentiometer dimmer and LED crossfade
+# 02: Dual-LED Light Dimmer
 
 ## Goal
 Turn a potentiometer to fade the blue LED down as the red LED fades up.
@@ -25,7 +25,7 @@ analogWrite() sends PWM signals to the LEDs; the Serial Monitor prints the input
 An experiment used map(potValue, 0, 1, ...), which caused the output to jump toward the extremes. Using the actual ADC input range of 0–1023 gives smooth fading.
 
 ## Code
-[potentiometer_dimmer.ino](potentiometer_dimmer.ino)
+[light_dimmer.ino](light_dimmer.ino)
 
 ## Optional documentation
 Add a breadboard photo or circuit sketch when available.

@@ -1,4 +1,4 @@
-# 03: Automatic night light
+# 03: Automatic Night Light
 
 ## Goal
 Automatically switch an LED on in darkness and allow a temporary button override.
@@ -25,7 +25,7 @@ The current sketch refreshes the override start time while the button is held, s
 An earlier attempt reset the timer each loop and the override did not expire correctly. The current sketch stores the timer and active flag outside loop() and checks elapsed time instead of blocking with delay().
 
 ## Code
-[night_light.ino](night_light.ino)
+[automatic_night_light.ino](automatic_night_light.ino)
 
 ## Optional documentation
 Add a photo and a wiring schematic when available.

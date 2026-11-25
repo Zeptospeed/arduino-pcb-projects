@@ -1,4 +1,4 @@
-# 01: Button and LEDs
+# 01: Button-Controlled LEDs
 
 ## Goal
 Press a button to control two LEDs using digital input and output.
@@ -20,7 +20,7 @@ The input normally reads HIGH because of the internal pull-up. Pressing the butt
 A pull-up button has inverted logic: pressed means LOW, rather than HIGH. The sketch correctly checks digitalRead(button) == LOW.
 
 ## Code
-[button_led.ino](button_led.ino)
+[button_led_control.ino](button_led_control.ino)
 
 ## Optional documentation
 Add a hardware photo or circuit sketch when available.

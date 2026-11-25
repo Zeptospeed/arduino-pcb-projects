@@ -1,4 +1,4 @@
-# 04: Temperature-controlled fan
+# 04: Temperature-Controlled Fan
 
 ## Goal
 Use a thermistor to switch a small fan on when warm and off after cooling. Separate thresholds provide hysteresis to prevent rapid on/off switching.
@@ -42,4 +42,4 @@ This does **not** establish the motor's running or startup current. The transist
 These upgrades are not yet implemented in the committed sketch.
 
 ## Code
-[temperature_fan.ino](temperature_fan.ino)
+[temperature_controlled_fan.ino](temperature_controlled_fan.ino)

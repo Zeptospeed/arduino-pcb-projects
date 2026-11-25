@@ -1,4 +1,4 @@
-# 05: Automotive parking assist
+# 05: Ultrasonic Parking Assist System
 
 ## Goal
 Build a prototype parking-assist system that measures the distance to nearby objects and communicates risk through a 16x2 LCD, three colored LEDs, and a buzzer. 
@@ -70,4 +70,4 @@ Before relying on the results quantitatively, record measurements against a rule
 - Test additional edge cases and compare filtering with raw measurements.
 
 ## Code
-[parking_assist.ino](parking_assist.ino)
+[parking_assist_system.ino](parking_assist_system.ino)
