@@ -1,7 +1,7 @@
 # 05: Automotive parking assist
 
 ## Goal
-Build a prototype parking-assist system that measures the distance to nearby objects and communicates risk through a 16x2 LCD, three colored LEDs, and a buzzer. This is a learning prototype, **not** a safety-rated vehicle parking system.
+Build a prototype parking-assist system that measures the distance to nearby objects and communicates risk through a 16x2 LCD, three colored LEDs, and a buzzer. 
 
 ## Hardware
 - ELEGOO Arduino UNO R3 / ATmega328P
@@ -39,19 +39,19 @@ LCD D0–D3 are unused (4-bit mode). Verify component pin labels before connecti
 No echo is treated as **unknown**, not as a distance of zero.
 
 ## Implementation
-- The ultrasonic sensor is triggered with a 10 us pulse; echo pulse duration is converted to centimeters using `distance_cm = duration_us * 0.0343 / 2`.
-- A sensor attempt is scheduled approximately every 60 ms via `millis()`.
+- The ultrasonic sensor is triggered with a 10 us pulse; echo pulse duration is converted to centimeters using distance_cm = duration_us * 0.0343 / 2.
+- A sensor attempt is scheduled approximately every 60 ms via millis().
 - Five attempts form a batch. Timeout measurements are excluded; the valid values are selection-sorted and the middle reading is selected. For even valid counts, the upper middle value is used.
-- If every attempt times out, the function returns `-1` for no signal.
-- Buzzer timing uses a separate `millis()` clock and resets when the warning status changes.
-- `pulseIn(..., 30000)` can still block up to about 30 ms. This is not a fully interrupt-driven sensor implementation.
+- If every attempt times out, the function returns -1 for no signal.
+- Buzzer timing uses a separate millis() clock and resets when the warning status changes.
+- pulseIn(..., 30000) can still block up to about 30 ms. This is not a fully interrupt-driven sensor implementation.
 
 ## Concepts learned
 - Digital sensors and pulse timing
 - Time-of-flight distance calculation
 - Filtering readings with arrays and selection sort
 - Handling missing measurements instead of treating them as 0 cm
-- Non-blocking buzzer timing using `millis()`
+- Non-blocking buzzer timing using millis()
 - Integrating an LCD, LEDs and sound into one embedded system
 
 ## Testing and limitations
@@ -62,7 +62,7 @@ Before relying on the results quantitatively, record measurements against a rule
 ## Problems and fixes
 - Occasional large outliers: added a median filter over batches of five readings.
 - Missing echo returned a zero duration and could trigger a false STOP: ignore timeouts and display UNKNOWN when all five measurements fail.
-- Blocking buzzer delays slowed updates: replaced delay-based beeping with a state machine driven by `millis()`.
+- Blocking buzzer delays slowed updates: replaced delay-based beeping with a state machine driven by millis().
 
 ## Still to do
 - Add a prototype photo, a wiring schematic, and a short demonstration video.
