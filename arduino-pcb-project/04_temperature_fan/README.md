@@ -18,7 +18,7 @@ Recorded raw ADC observations: room temperature approximately **495**, warmed by
 ## Calculation
 Estimated base current with a 5 V drive, 1 kOhm resistor and assumed 0.7 V base-emitter drop:
 
-`I_base ≈ (5 - 0.7) / 1000 = 0.0043 A = 4.3 mA`
+I_base ≈ (5 - 0.7) / 1000 = 0.0043 A = 4.3 mA
 
 This does **not** establish the motor's running or startup current. The transistor's allowable current depends on its specific datasheet and thermal conditions. Actual motor current and its power source still need to be documented before making a driver-capability claim.
 
@@ -29,13 +29,13 @@ This does **not** establish the motor's running or startup current. The transist
 - Hysteresis with a persistent state variable
 
 ## Problems and fixes
-- Arduino power LED dimmed and parts got warm, suggesting a wiring fault or overload. The exact cause was not recorded. Safe troubleshooting: disconnect power, inspect the rails, wiring and transistor pinout, and check for shorts before reconnecting.
-- Analog input was stuck near 1023 until the divider wiring was corrected. The exact fault was not recorded, but subsequent sensor readings changed with warming.
-- Code initially compared the pin constant `A0` rather than `analogRead(sensor)`; use the measured value.
+- Arduino power LED dimmed and components became warm. The likely cause was a misplaced breadboard jumper creating a short between the 5V and GND rails. I disconnected power, checked the breadboard connections, and corrected the wiring before testing again. This is the most likely explanation based on the symptoms, rather than a verified diagnosis.
+- The analog reading was stuck near 1023 because the voltage divider was not connected correctly, likely leaving A0 too close to the 5V rail. After checking the thermistor, junction and 10 kOhm resistor connections, the readings changed normally when the thermistor was warmed.
+- Code initially compared the pin constant A0 rather than analogRead(sensor); use the measured value.
 
 ## Possible improvements
 - Average 10 readings to reduce noise
-- Put fan output control into a `setFan()` function
+- Put fan output control into a setFan() function
 - Add a separate high-temperature buzzer/LED alarm
 - Measure and document motor current and add a real wiring photo/schematic
 
